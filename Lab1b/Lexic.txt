@@ -7,8 +7,8 @@ c. Underscore character '_';
 Lexic:
 
 a.Special symbols, representing:
-- operators + - * / < <= = >= == != ! and or []
-- separators () { }  : ; space . ,
+- operators + - * / < <= = >= == != ! and or 
+- separators () [] {}  : ; space . ,
 - reserved words:
 	var, number, string, if, else, while, for, exec, read, write, array
 
