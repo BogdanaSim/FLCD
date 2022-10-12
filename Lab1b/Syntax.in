@@ -32,7 +32,7 @@ factor = "(" expression ")" | IDENTIFIER | integer | array_element
 
 array_element = IDENTIFIER "[" nr "]"
 
-iostmt = "read" | "write" "(" IDENTIFIER ")"
+iostmt = ("read" | "write" ) "(" IDENTIFIER ")"
 
 structstmt = cmpdstmt | ifstmt | whilestmt | forstmt
 
