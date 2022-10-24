@@ -1,0 +1,31 @@
+exec{
+number a;
+number b;
+number copya;
+copya = a;
+number copyb;
+copyb=b;
+number gcd;
+if(a == 0 and b == 0){
+gcd = 0
+}
+else if(a == 0){
+gcd = b
+}
+else if (b == 0){
+gcd = a
+}
+else{
+r = a % b;
+while(r!=0){
+a = b;
+b = r;
+r = a % b;
+}
+gcd = b;
+}
+string message;
+message='The gcd is: ';
+write(message);
+write(gcd);
+}
