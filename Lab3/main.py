@@ -28,13 +28,14 @@ if __name__ == '__main__':
                     constant = tokens[i]
                     pif.insert("constant", st.get_position(constant))
                 else:
-                    exception += 'Lexical error --> ' + tokens[i] + '; at line ' + str(index_line) + "\n"
+                    exception += 'Lexical error --> ' + tokens[i] + ' - at line ' + str(index_line) + "\n"
             index_line += 1
-    with open('ST.out', 'w') as writer:
-        writer.write(str(st))
 
     with open('PIF.out', 'w') as writer:
         writer.write(str(pif))
+
+    with open('ST.out', 'w') as writer:
+        writer.write(str(st))
 
     if exception == '':
         print("Lexically correct!")

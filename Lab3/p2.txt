@@ -25,7 +25,7 @@ r = a % b;
 gcd = b;
 }
 string message;
-message='The gcd is: ';
+message='The gcd is ';
 write(message);
 write(gcd);
 }

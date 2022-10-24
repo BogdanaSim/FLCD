@@ -40,10 +40,10 @@ class Scanner:
         return False
 
     def is_constant(self, elem):
-        return re.match(r'^(0|[+-]?[1-9][0-9]*)$|^\'.\'$|^\'.*\'$', elem) is not None
+        return re.match(r'^(0|[+-]?[1-9][0-9]*)$|^\'.*\'$', elem) is not None
 
     def is_identifier(self, elem):
-        return re.match(r'^[a-z]([a-zA-Z]|[0-9])*$', elem) is not None
+        return re.match(r'^[a-zA-Z]([a-zA-Z]|[0-9])*$', elem) is not None
 
     def get_line_tokens(self, line):
         token = ''
@@ -72,7 +72,7 @@ class Scanner:
                     i += 1
                 tokens.append(token)
                 token = ''
-            elif line[i] in self.__separators and '\n' not in line[i]:
+            elif line[i] in self.__separators:
                 if len(token) > 0:
                     tokens.append(token)
                 token = line[i]

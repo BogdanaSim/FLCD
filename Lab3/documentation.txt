@@ -42,3 +42,5 @@ These are the functions used in the HashTable class, respectively in SymbolTable
         -returns the position of the given value in the corresponding deque from the hash table
         -param value: is of type string, value must exist in the hash table
         -return: the position of the value in the deque associated with its hash code
+
+    def get_position(value):

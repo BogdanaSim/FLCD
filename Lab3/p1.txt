@@ -19,11 +19,11 @@ isPrime=0;
 d=d+2;
 }
 if(isPrime==1){
-message = 'The number is prime!';
+message = 'The number is prime.';
 }
 
 else{
-message = 'The number is not prime!';
+message = 'The number is not prime.';
 }
 write(message);
 }

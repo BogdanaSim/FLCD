@@ -10,7 +10,7 @@ read(x);
 s=s+x;
 }
 string message;
-message='Sum of the numbers is: ';
+message='Sum of the numbers is ';
 write(message);
 write(s);
 
