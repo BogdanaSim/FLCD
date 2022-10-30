@@ -7,7 +7,7 @@ if __name__ == '__main__':
     pif = PIF()
     scanner = Scanner()
 
-    program = "p1err.txt"
+    program = "p1.txt"  # change the program here
     exception = ""
 
     with open(program, 'r') as file:
