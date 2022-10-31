@@ -1,0 +1,17 @@
+exec{
+number s;
+s=0;
+number n;
+read(n);
+number i;
+number x;
+while(i<n){
+read(x);
+s=s+x;
+}
+string message;
+message='Sum of the numbers is ';
+write(message);
+write(s);
+
+}

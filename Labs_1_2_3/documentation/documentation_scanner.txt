@@ -1,0 +1,61 @@
+Link git: https://github.com/BogdanaSim/FLCD
+
+The Program Internal Form (PIF) is represented as a list that contains pairs. First element in the pair
+is the token itself and the second one is the position of the token in the SymbolTable, which contains
+the hash code of the token and its index in the list found from that key. The tokens which are not
+stored in the SymbolTable will have their position (-1,-1) (in this case those will be the reserved words,
+the separators and the operators).
+
+These are the functions used in the PIF class:
+
+       insert(token, position)
+        -inserts the given token and its position in the SymbolTable in the PIF list of pairs
+        -param value: is of type string
+        -param position: is a tuple of two integers
+
+The Scanner will separate the tokens from each line of the program. It will check character by character
+the type that the token can be (using lists of reserved words, operators and separators which will be read
+from the "token.in" file) and then it will add the rest of it correspondingly to the list of tokens.
+After registering all the tokens, each one will be added to the SymbolTable and in the PIF, along with their
+position, except for the separators, reserved words and operators which will have their position (-1-1)
+in the PIF and they will not be saved in the SymbolTable.
+In the case of constants and identifiers, their variable names or values will not be saved in the PIF. Instead,
+they will be inserted having as keys "identifier" for identifiers and "constant" for constants, followed by
+their position.
+Otherwise, it means that a lexical error was found in the program and then the error message will be printed in
+the final output.
+
+These are the functions used in the Scanner class:
+
+    get_reserved_words():
+        -returns a list of the reserved words that can be used in a program (read from "token.in")
+
+    get_separators():
+        -returns a list of the separators that can be used in a program (read from "token.in")
+
+    get_operators():
+        -returns a list of the operators that can be used in a program (read from "token.in")
+
+    get_all(self):
+        -returns a list of the reserved words, separators and the operators that can be used in a program (read from "token.in")
+
+    read_tokens():
+        -read the tokens that can be used in a program (read from "token.in")
+        -it is used when the Scanner is constructed
+
+    is_operator(elem):
+        -checks if the given element is an operator or part of an operator from the operators list
+        -param elem: is of type string
+
+    is_constant(elem):
+        -checks if the given element is a constant using regular expression
+        -param elem: is of type string
+
+    is_identifier(elem):
+       -checks if the given element is an identifier using regular expression
+       -param elem: is of type string
+
+    get_line_tokens(self, line):
+       -returns the list of tokens found in the given line of the program
+       -param line: is of type string
+

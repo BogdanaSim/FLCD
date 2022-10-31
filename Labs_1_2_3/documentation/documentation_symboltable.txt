@@ -1,0 +1,46 @@
+Link git: https://github.com/BogdanaSim/FLCD
+
+The symbol table is represented by a hash table and is unique for identifiers and constants.
+The hash table is organized in a dictionary of deques, where a dictionary has a O(1) time
+complexity for the search operation and the deque collection provides an O(1) time complexity
+for append and pop operations.
+
+These are the functions used in the HashTable class, respectively in SymbolTable class:
+
+    hash_function(value)
+        (-only used in HashTable class)
+        -time complexity of O(n)
+        -computes the hash code using the division method for the given value
+        -param value: is of type string
+        -return: the hash code for the given value
+
+    insert(value)
+        -time complexity of O(1)
+        -inserts the given value in the hash table on their corresponding position depending on their computed hash code
+        -param value: is of type string
+
+    delete(value)
+        -time complexity of O(n)
+        -removes the given value in the hash table from their corresponding position depending on their computed hash code
+        -param value: is of type string
+
+    search(value):
+        -time complexity of O(n)
+        -checks if the given value is found in the hash table using their computed hash code
+        -param value: is of type string
+        -return: True if the value is in the hash table, False otherwise
+
+    get_value_on_position(key,position):
+        -time complexity of O(1)
+        -gets the value on the given position from the deque with its hash code equal to the given key
+        -param key: is of type int, greater or equal than 0, lower than the size of the hash table
+        -param position: is of type int, greater or equal than 0, lower than the length deque with its hash code equal to the given key
+        -return: the value on the given position with the hash code the same as the given key
+
+    get_index(value):
+        -time complexity of O(n)
+        -returns the position of the given value in the corresponding deque from the hash table
+        -param value: is of type string, value must exist in the hash table
+        -return: the position of the value in the deque associated with its hash code
+
+    def get_position(value):

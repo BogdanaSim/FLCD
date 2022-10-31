@@ -1,0 +1,41 @@
+program = "exec" cmpdstmt 
+
+decllist = declaration | declaration ";" decllist
+
+declaration = type1 " " IDENTIFIER | arraydecl
+
+type1 = "number" | "string" | "var" 
+
+arraydecl = type1 " " "array" " " "[" nr "]"
+
+type  = type1 | arraydecl
+
+cmpdstmt = "{" stmtlist "}"
+
+stmtlist = stmt | stmt ";" stmtlist
+
+stmt = simplstmt | structstmt
+
+simplstmt = ( assignstmt | iostmt ) ";"
+
+assignstmt = IDENTIFIER "=" expression
+
+expression = expression ("+" | "-") term | term
+
+term = term ("*" | "/" | "%") factor | factor
+
+factor = "(" expression ")" | IDENTIFIER | integer 
+
+iostmt = ("read" | "write" ) "(" IDENTIFIER ")"
+
+structstmt = cmpdstmt | ifstmt | whilestmt | forstmt
+
+ifstmt = "if" condition stmt ["else" stmt]
+
+whilestmt = "while" condition  "{"stmt"}"
+
+forstmt = "for" "(" "number" assignstmt ";" condition ";" assignstmt" )" "{"stmt"}"
+
+condition = "(" expression RELATION expression ")"
+
+RELATION = "<" | "<=" | "=" | "!=" | ">=" | ">" | "=="

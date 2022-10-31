@@ -1,0 +1,21 @@
+exec{
+number 1a;
+number b;
+number c;
+number minimum;
+read(1a);
+read(b);
+read(c);
+minimum = c;
+if(1a <b and 1a <c){
+minimum = 1a;
+}
+else if(b<c){
+minimum=b;
+}
+
+string message;
+message='The minimum is;
+write(message);
+write(minimum);
+}
