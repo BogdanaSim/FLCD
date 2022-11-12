@@ -10,6 +10,7 @@
       <list>
         <option value="$MODULE_DIR$/scanner" />
         <option value="$MODULE_DIR$/symboltable" />
+        <option value="$MODULE_DIR$/fa" />
       </list>
     </option>
   </component>

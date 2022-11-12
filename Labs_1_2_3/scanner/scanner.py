@@ -40,7 +40,8 @@ class Scanner:
         return False
 
     def is_constant(self, elem):
-        return re.match(r'^(0|[+-]?[1-9][0-9]*)$|^\'.*\'$', elem) is not None
+        return re.match(r'^\'.*\'$', elem) is not None
+       # return re.match(r'^(0|[+-]?[1-9][0-9]*)$|^\'.*\'$', elem) is not None
 
     def is_identifier(self, elem):
         return re.match(r'^[a-zA-Z]([a-zA-Z]|[0-9])*$', elem) is not None

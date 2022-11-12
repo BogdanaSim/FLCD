@@ -1,3 +1,4 @@
+from fa.fa import FiniteAutomaton
 from scanner.pif import PIF
 from scanner.scanner import Scanner
 from symboltable.symboltable import SymbolTable
@@ -7,9 +8,11 @@ if __name__ == '__main__':
     pif = PIF()
     scanner = Scanner()
 
-    program = "programs/p1err.txt"  # change the program here
+    program = "programs/p1.txt"  # change the program here
     exception = ""
 
+    fa_id = FiniteAutomaton('fa/FA_ID.in')
+    fa_const_int = FiniteAutomaton('fa/FA_CONST_INT.in')
     with open(program, 'r') as file:
         index_line = 1
         for line in file:
@@ -19,14 +22,19 @@ if __name__ == '__main__':
                     if tokens[i] == ' ':
                         continue
                     pif.insert(tokens[i], (-1, -1))
-                elif scanner.is_identifier(tokens[i]):
+                elif fa_id.is_accepted_by_fa(tokens[i]):
+                    # elif scanner.is_identifier(tokens[i]):
                     st.insert(tokens[i])
                     identifier = tokens[i]
                     pif.insert("identifier", st.get_position(identifier))
+                elif fa_const_int.is_accepted_by_fa(tokens[i]):
+                    st.insert(tokens[i])
+                    constant = tokens[i]
+                    pif.insert("integer_constant", st.get_position(constant))
                 elif scanner.is_constant(tokens[i]):
                     st.insert(tokens[i])
                     constant = tokens[i]
-                    pif.insert("constant", st.get_position(constant))
+                    pif.insert("string_constant", st.get_position(constant))
                 else:
                     exception += 'Lexical error --> ' + tokens[i] + ' - at line ' + str(index_line) + "\n"
             index_line += 1
