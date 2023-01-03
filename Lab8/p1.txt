@@ -1,0 +1,29 @@
+exec{
+number n;
+read(n);
+number isPrime;
+string message;
+isPrime=1;
+if(n<=1){
+isPrime=0;
+}
+if(n%2==0 and n!=2){
+isPrime=0;
+}
+number d;
+d=3;
+while(d*d<=n){
+if(d*d<=n){
+isPrime=0;
+}
+d=d+2;
+}
+if(isPrime==1){
+message = 'The number is prime.';
+}
+
+else{
+message = 'The number is not prime.';
+}
+write(message);
+}
