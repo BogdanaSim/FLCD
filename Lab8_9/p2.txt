@@ -7,13 +7,13 @@ number copyb;
 copyb=b;
 number gcd;
 if(a == 0 and b == 0){
-gcd = 0
+gcd = 0;
 }
 else if(a == 0){
-gcd = b
+gcd = b;
 }
 else if (b == 0){
-gcd = a
+gcd = a;
 }
 else{
 r = a % b;
