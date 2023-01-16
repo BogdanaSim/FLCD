@@ -1,0 +1,24 @@
+program declaration type compound_stmt list_stmts stmt simple_stmt struct_stmt if_stmt for_stmt while_stmt assignment_stmt term1 term2 factor1 factor2 expression id_index io_stmt condition relation
+exec number array string { } ; + - * / ( ) while for if else id const <  <=  =  !=  >=  >  == read write
+program
+program ::= exec compound_stmt
+declaration ::= type id;
+type ::= string | number | array [ const ];
+compound_stmt ::= { list_stmts };
+list_stmts ::= stmt | stmt list_stmts;
+stmt ::= simple_stmt ; | struct_stmt;
+simple_stmt ::= assignment_stmt | io_stmt | declaration;
+struct_stmt ::= compound_stmt | if_stmt | while_stmt | for_stmt;
+if_stmt ::= if condition stmt | if condition stmt  else stmt;
+for_stmt ::= for ( number assignment_stmt ; condition ; assignment_stmt ) stmt;
+while_stmt ::= while condition stmt;
+assignment_stmt ::= id = factor2;
+expression ::= term2 term1;
+term1 ::= + term2 term1 | - term2 term1;
+term2 ::= factor2 factor1;
+factor1 ::= * factor2 factor1 | / factor2 factor1;
+factor2 ::= ( expression ) | id | const;
+id_index ::= id [ const ];
+io_stmt ::= read ( id ) | write ( id );
+condition ::= ( id relation const );
+relation ::= < | <= | = | != | >= | > | ==
